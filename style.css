@@ -1,0 +1,77 @@
+/* FILE: static/css/style.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.card {
+    width: 300px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 5px #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;  /* spacing between elements */
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+button, a.button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+button:hover, a.button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+video, iframe {
+    width: 100%;
+    border-radius: 10px;
+}
+
+h2, h3 {
+    color: #333;
+}
+
+.progress-container {
+    width: 100%;
+    height: 20px;
+    background: #eee;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #007bff;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    transition: width 0.5s ease;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+}

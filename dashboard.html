@@ -1,0 +1,77 @@
+<!-- FILE: templates/dashboard.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - Learnify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .card { border: 1px solid #ddd; border-radius:8px; padding:15px; box-shadow:1px 1px 5px #ccc; margin-bottom:20px; }
+        .progress-container { background:#eee; border-radius:5px; height:20px; width:100%; overflow:hidden; margin-top:10px; }
+        .progress-bar { height:100%; width:0; background-color:#007bff; color:white; text-align:center; line-height:20px; transition:width 1s ease; }
+        .button { display:inline-block; margin-top:10px; padding:8px 12px; background:#28a745; color:white; border-radius:5px; text-decoration:none; }
+        .button-back { display:inline-block; margin-top:10px; padding:5px 10px; background:#6c757d; color:white; border-radius:5px; text-decoration:none; }
+    </style>
+</head>
+<body>
+
+<nav style="background-color:#007bff; padding:15px;">
+    <div style="display:flex; justify-content:space-between; color:white;">
+        <h1 style="margin:0;">Learnify</h1>
+        <div>
+            <a href="/" style="color:white; margin-right:15px; text-decoration:none;">Home</a>
+            <a href="/login" style="color:white; margin-right:15px; text-decoration:none;">Login</a>
+            <a href="/register" style="color:white; text-decoration:none;">Register</a>
+        </div>
+    </div>
+</nav>
+
+<div class="dashboard-container">
+    {% for lesson in lessons %}
+    <div class="card" style="width:300px;">
+        <h3>{{ lesson.title }}</h3>
+        <p>{{ lesson.description }}</p>
+
+        <video width="100%" controls>
+            <source src="{{ url_for('static', filename='videos/' ~ lesson.video_url.split('/')[-1]) }}" type="video/mp4">
+        </video>
+
+        <!-- Lesson Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" style="width: {{ lesson.progress_percent }}%;">
+                {% if lesson.progress_percent > 0 %}
+                    {{ lesson.progress_percent }}%
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Lesson Buttons -->
+        <a href="/lesson/{{ lesson.id }}" class="button">Go to Lesson Page</a>
+        <a href="/quiz/{{ lesson.id }}" class="button">Take Quiz</a>
+
+        <!-- User Progress Calculation -->
+        {% set user_progress = 0 %}
+        {% for p in progress %}
+            {% if p[2] == lesson.id %}
+                {% if p[3] %}
+                    {% set user_progress = 100 %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        <!-- User Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" style="width: {{ user_progress }}%;">
+                {% if user_progress > 0 %}
+                    {{ user_progress }}%
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <a href="/dashboard" class="button-back">Back</a>
+    </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>

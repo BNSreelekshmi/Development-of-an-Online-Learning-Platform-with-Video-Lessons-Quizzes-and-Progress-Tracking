@@ -1,0 +1,41 @@
+<!-- FILE: templates/home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learnify - Online Learning Platform</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav style="background-color:#007bff; padding:15px;">
+    <div style="display:flex; justify-content:space-between; color:white;">
+        <h1 style="margin:0;">Learnify</h1>
+        <div>
+            <a href="/" style="color:white; margin-right:15px; text-decoration:none;">Home</a>
+            <a href="/login" style="color:white; margin-right:15px; text-decoration:none;">Login</a>
+            <a href="/register" style="color:white; text-decoration:none;">Register</a>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" style="text-align:center; padding:100px 20px; background-color:#f0f4f8;">
+    <h2>Welcome to Learnify!</h2>
+    <p>Learn web development, Python, and more with interactive lessons and quizzes.</p>
+    <a href="/login" class="button">Get Started</a>
+</div>
+
+<!-- Features -->
+<div class="container">
+    <h2 style="text-align:center;">Features</h2>
+    <div style="display:flex; justify-content:space-around; flex-wrap:wrap; margin-top:30px;">
+        <div class="card" style="width:250px;"><h3>Video Lessons</h3><p>Watch high-quality tutorials at your own pace.</p></div>
+        <div class="card" style="width:250px;"><h3>Quizzes</h3><p>Test your knowledge after every lesson.</p></div>
+        <div class="card" style="width:250px;"><h3>Progress Tracking</h3><p>See your learning progress in real-time.</p></div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

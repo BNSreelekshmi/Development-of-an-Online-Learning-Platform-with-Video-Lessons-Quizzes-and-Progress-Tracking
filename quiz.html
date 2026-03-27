@@ -1,0 +1,24 @@
+<!-- FILE: templates/quiz.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz - Learnify</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container" style="margin-top:30px;">
+    <h3>{{ q[2] }}</h3>
+    <form method="POST" style="display:flex; flex-direction:column; gap:10px; margin-top:20px;">
+        <label><input type="radio" name="answer" value="1"> {{ q[3] }}</label>
+        <label><input type="radio" name="answer" value="2"> {{ q[4] }}</label>
+        <label><input type="radio" name="answer" value="3"> {{ q[5] }}</label>
+        <label><input type="radio" name="answer" value="4"> {{ q[6] }}</label>
+        <button type="submit" class="button">Submit</button>
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<a href="/dashboard" class="btn btn-secondary" style="margin-top:10px;">Back to Dashboard</a>
+</body>
+</html>
