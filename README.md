@@ -30,8 +30,6 @@ This project is a web-based online learning platform developed using Python (Fla
 - Database: PostgreSQL
 - Tools: VS Code, GitHub
 
-## Installation & Setup
-
 ## outputs
 
 <img width="1907" height="968" alt="Image" src="https://github.com/user-attachments/assets/541c472e-ff24-47c6-8cf7-d6f81ec860cc" />
